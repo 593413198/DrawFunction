@@ -53,13 +53,16 @@ def Draw(x,y):
 first = True
 last = False # 记录上一个画点是否在画布外
 
-def draw_func(a,b,c,d):
-    #　先尝试画一个 y = 3x-1的图像
+def draw_func(*args):
+    #　画F=a0 + a1x^1 + a2x^2 + ... + anx^n
     global first, last
     first = True
     last = False
+    l = len(args)
     for i in numpy.arange(-20,21,0.1):
-        j = a*i**3 + b*i*i + c*i + d
+        j = 0
+        for k in range(l):
+            j += args[k]*(i**k)
         x, y = x0+mm*i, y0-mm*j
         Draw(x,y)
 
@@ -76,5 +79,6 @@ def draw_circle(X,Y,r):
 
 if __name__ == '__main__':
     draw_coords()
-    draw_circle(1,1,4)
-    draw_func(-1,2,3,-4)
+    draw_circle(1,1,2)
+    draw_func(0,0,0,1)
+    draw_func(0,0,1)

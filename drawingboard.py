@@ -25,7 +25,6 @@ def onLeftMove(event):
     X.set(event.x)
     Y.set(event.y)
 
-
 canvas.bind('<Button-1>',onLeftDown) #单击鼠标左键
 canvas.bind('<B1-Motion>',onLeftMove) #按住鼠标左键
 #canvas.bind('<ButtonRelease-1>',onLeftUp) #松开鼠标左键
